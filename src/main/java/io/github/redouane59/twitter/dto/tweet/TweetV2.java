@@ -119,11 +119,27 @@ public class TweetV2 implements Tweet {
   }
 
   @Override
-  public Attachments getAttachments() {
+  public AdditionalProperties getAdditionalProperties() {
+    if (data == null) {
+      return null;
+    }
+    return data.getAdditionalProperties();
+  }
+
+  @Override
+  public List<Attachments> getAttachments() {
     if (data == null) {
       return null;
     }
     return data.getAttachments();
+  }
+
+  @Override
+  public Reposts getReposts() {
+    if (data == null) {
+      return null;
+    }
+    return data.getReposts();
   }
 
   @Override
@@ -251,14 +267,20 @@ public class TweetV2 implements Tweet {
   public static class TweetData implements Tweet {
 
     private String                   id;
-    @JsonProperty("created_at")
+    @JsonAlias({"created_at", "date"})
     private String                   createdAt;
-    @JsonAlias({"text", "full_text"})
-    private String                   text;
-    @JsonProperty("author_id")
+    @JsonAlias({"author_id", "owner_id"})
     private String                   authorId;
     @JsonProperty("in_reply_to_user_id")
     private String                   inReplyToUserId;
+    @JsonProperty("from_id")
+    private String                   fromId;
+    @JsonProperty("author")
+    private UserData                 user;
+    @JsonAlias({"text", "full_text"})
+    private String                   text;
+    private List<Attachments>        attachments;
+    private Reposts                  reposts;
     @JsonProperty("referenced_tweets")
     private List<ReferencedTweetDTO> referencedTweets;
     private EntitiesV2               entities;
@@ -275,10 +297,10 @@ public class TweetV2 implements Tweet {
     @JsonProperty("reply_settings")
     private ReplySettings            replySettings;
     private Geo                      geo;
-    private Attachments              attachments;
     private String                   source;
-    @JsonIgnore
-    private UserData                 user;
+    private AdditionalProperties     additionalProperties;
+
+
 
     @Override
     @JsonIgnore

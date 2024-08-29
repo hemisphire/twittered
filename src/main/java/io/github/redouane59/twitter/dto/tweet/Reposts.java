@@ -1,7 +1,7 @@
 package io.github.redouane59.twitter.dto.tweet;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
+import io.github.redouane59.twitter.dto.tweet.AdditionalProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,9 +15,10 @@ import lombok.extern.jackson.Jacksonized;
 @AllArgsConstructor
 @Builder
 @Jacksonized
-public class Attachments {
+public class Reposts {
 
   @JsonProperty("media_keys")
-  private List<String> mediaKeys;
+  private int count;
+  private AdditionalProperties additionalProperties;
 
 }
