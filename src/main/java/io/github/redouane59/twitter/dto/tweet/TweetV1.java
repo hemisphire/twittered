@@ -128,6 +128,12 @@ public class TweetV1 implements Tweet {
   }
 
   @Override
+  public List<String> getEditHistoryTweetIds() {
+    LOGGER.error(NOT_IMPLEMENTED_EXCEPTION);
+    return Collections.emptyList();
+  }
+
+  @Override
   public List<MediaEntityV1> getMedia() {
     if (entities != null) {
       return entities.getMedia();

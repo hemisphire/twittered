@@ -173,4 +173,9 @@ public interface Tweet {
    * Get the reposts of the tweet
    */
   Reposts getReposts();
+
+  /**
+   * Get the edit history of the tweet
+   */
+  List<String> getEditHistoryTweetIds();
 }

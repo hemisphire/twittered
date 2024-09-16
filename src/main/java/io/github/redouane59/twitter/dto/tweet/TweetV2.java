@@ -151,6 +151,14 @@ public class TweetV2 implements Tweet {
   }
 
   @Override
+  public List<String> getEditHistoryTweetIds() {
+    if (data == null) {
+      return null;
+    }
+    return data.getEditHistoryTweetIds();
+  }
+
+  @Override
   public Entities getEntities() {
     if (data == null) {
       return null;
@@ -299,6 +307,8 @@ public class TweetV2 implements Tweet {
     private Geo                      geo;
     private String                   source;
     private AdditionalProperties     additionalProperties;
+    @JsonProperty("edit_history_tweet_ids")
+    private List<String>             editHistoryTweetIds;
 
 
 
