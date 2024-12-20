@@ -46,13 +46,11 @@
       "like_count": 0,
       "quote_count": 0
     },
-    "attachments": [
-      {
-        "media_keys": [
-          "3_1359517038289510400"
-        ]
-      }
-    ]
+    "attachments": {
+      "media_keys": [
+        "3_1035190907354734592"
+      ]
+    }
   },
   "includes": {
     "users": [

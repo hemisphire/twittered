@@ -133,8 +133,8 @@ public class TweetDeserializerV2Test {
   @Test
   public void testMedia() {
     assertNotNull(tweetv2.getAttachments());
-    assertNotNull(tweetv2.getAttachments().get(0).getMediaKeys());
-    assertEquals("3_1359517038289510400", tweetv2.getAttachments().get(0).getMediaKeys().get(0));
+    assertNotNull(tweetv2.getAttachments().getMediaKeys());
+    assertEquals("3_1035190907354734592", tweetv2.getAttachments().getMediaKeys().get(0));
   }
 
   @Test
@@ -226,7 +226,7 @@ public class TweetDeserializerV2Test {
     TweetV2.MediaEntityV2 ev2 = (TweetV2.MediaEntityV2) e;
     assertNotNull(ev2);
     assertEquals("3_1365362339449561088", ev2.getKey());
-    assertFalse(Arrays.asList(tweetv2.getAttachments().get(0).getMediaKeys()).contains(ev2.getKey()));
+    assertFalse(Arrays.asList(tweetv2.getAttachments().getMediaKeys()).contains(ev2.getKey()));
     assertEquals(34875, ev2.getDuration());
     assertEquals(720, ev2.getHeight());
     assertEquals(1280, ev2.getWidth());

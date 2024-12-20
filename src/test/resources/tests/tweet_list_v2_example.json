@@ -141,13 +141,11 @@
       "possibly_sensitive": false,
       "author_id": "2244994945",
       "source": "Twitter Web App",
-      "attachments": [
-        {
-          "media_keys": [
-            "3_1359517038289510400"
-          ]
-        }
-      ],
+      "attachments": {
+        "media_keys": [
+          "3_1035190907354734592"
+        ]
+      },
       "conversation_id": "1460323737035677698",
       "lang": "en",
       "entities": {
@@ -265,14 +263,12 @@
       },
       "author_id": "1120050519182016513",
       "source": "Twitter Web App",
-      "attachments": [
-        {
-          "media_keys": [
-            "3_1464696946564734980",
-            "3_1464696974645633034"
-          ]
-        }
-      ],
+      "attachments": {
+        "media_keys": [
+          "3_1464696946564734980",
+          "3_1464696974645633034"
+        ]
+      },
       "conversation_id": "1464697044006846474",
       "lang": "en",
       "created_at": "2021-11-27T20:46:02.000Z",

@@ -136,7 +136,7 @@ public interface Tweet {
   /**
    * Get the attachments of the tweet
    */
-  List<Attachments> getAttachments();
+  Attachments getAttachments();
 
   /**
    * Get the source label of the tweet

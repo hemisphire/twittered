@@ -20,4 +20,7 @@ public class Attachments {
   @JsonProperty("media_keys")
   private List<String> mediaKeys;
 
+  @JsonProperty("media_source_tweet_id")
+  private List<String> mediaSourceTweetId;
+
 }

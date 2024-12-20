@@ -127,14 +127,6 @@ public class TweetV2 implements Tweet {
   }
 
   @Override
-  public List<Attachments> getAttachments() {
-    if (data == null) {
-      return null;
-    }
-    return data.getAttachments();
-  }
-
-  @Override
   public Reposts getReposts() {
     if (data == null) {
       return null;
@@ -266,6 +258,14 @@ public class TweetV2 implements Tweet {
     return data.getReferencedTweets().get(0).getType();
   }
 
+  @Override
+  public Attachments getAttachments() {
+    if (data == null) {
+      return null;
+    }
+    return data.attachments;
+  }
+
   @Getter
   @Setter
   @Builder
@@ -287,7 +287,7 @@ public class TweetV2 implements Tweet {
     private UserData                 user;
     @JsonAlias({"text", "full_text"})
     private String                   text;
-    private List<Attachments>        attachments;
+    private Attachments              attachments;
     private Reposts                  reposts;
     @JsonProperty("referenced_tweets")
     private List<ReferencedTweetDTO> referencedTweets;
@@ -397,6 +397,10 @@ public class TweetV2 implements Tweet {
       return ConverterHelper.getDateFromTwitterStringV2(createdAt);
     }
 
+    @Override
+    public Attachments getAttachments() {
+      return attachments;
+    }
   }
 
   @Getter

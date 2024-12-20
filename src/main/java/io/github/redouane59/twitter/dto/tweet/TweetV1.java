@@ -110,9 +110,9 @@ public class TweetV1 implements Tweet {
   }
 
   @Override
-  public List<Attachments> getAttachments() {
+  public Attachments getAttachments() {
     LOGGER.error(NOT_IMPLEMENTED_EXCEPTION);
-    return Collections.emptyList();
+    return null;
   }
 
   @Override
