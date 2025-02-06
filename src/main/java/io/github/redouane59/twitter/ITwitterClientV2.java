@@ -156,7 +156,7 @@ public interface ITwitterClientV2 {
    * @param additionalParameters accepted parameters are recursiveCall, startTime, endTime, sinceId, untilId, maxResults
    * @return a TweetList object containing a list of tweets and the next token if recursiveCall is set to false
    */
-  TweetList searchTweetsNonRecursively(String query, AdditionalParameters additionalParameters);
+  TweetList searchTweetsNonRecursively(String query, AdditionalParameters additionalParameters, boolean historicalSearch);
 
   /**
    * Search archived tweets calling https://api.twitter.com/2/tweets/search/all

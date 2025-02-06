@@ -978,11 +978,11 @@ public class TwitterClient implements ITwitterClientV1, ITwitterClientV2, ITwitt
 
   @Override
   public TweetList searchTweetsNonRecursively(String query) {
-    return searchTweetsNonRecursively(query, AdditionalParameters.builder().maxResults(100).build());
+    return searchTweetsNonRecursively(query, AdditionalParameters.builder().maxResults(100).build(), false);
   }
 
   @Override
-  public TweetList searchTweetsNonRecursively(String query, AdditionalParameters additionalParameters) {
+  public TweetList searchTweetsNonRecursively(String query, AdditionalParameters additionalParameters, boolean historicalSearch) {
     Map<String, String> parameters = additionalParameters.getMapFromParameters();
     parameters.put(QUERY, query);
     parameters.put(TWEET_FIELDS, ALL_TWEET_FIELDS);
@@ -990,6 +990,9 @@ public class TwitterClient implements ITwitterClientV1, ITwitterClientV2, ITwitt
     parameters.put(EXPANSION, ALL_EXPANSIONS);
     parameters.put(MEDIA_FIELD, ALL_MEDIA_FIELDS);
     String url = urlHelper.getSearchRecentTweetsUrl();
+    if (historicalSearch) {
+      url = urlHelper.getSearchAllTweetsUrl();
+    }
     if (!additionalParameters.isRecursiveCall()) {
       return getRequestHelperV2().getRequestWithParameters(url, parameters, TweetList.class).orElseThrow(NoSuchElementException::new);
     }
